@@ -24,4 +24,4 @@ spec:
           mountPath: "/tmp/data"
   volumes:
     - name: xchange
-      emptyDir: {}
+      emptyDir:  {}
