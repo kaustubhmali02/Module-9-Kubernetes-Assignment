@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: httpd-config-file-pod1
+  namespace: httpd
+data:
+  index.html: |
+    <html>
+    <title>This is from pod1</title>
+    <body>
+    <h3>Welcome to Pod 1</h3>
+    </body>

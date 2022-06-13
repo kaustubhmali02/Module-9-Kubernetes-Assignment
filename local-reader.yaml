@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: local-test-reader
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: local-test-reader
+  template:
+    metadata:
+      labels:
+        app: local-test-reader
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: reader
+        image: ubuntu
+        command:
+        - "/bin/sh"
+        args:
+        - "-c"
+        volumeMounts:
+        - name: local-vol-usb
+          mountPath: /mnt/usb
+      volumes:
+      - name: local-vol-usb
+        persistentVolumeClaim:
+          claimName: "usb-pvc"
